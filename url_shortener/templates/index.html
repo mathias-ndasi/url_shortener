@@ -1,4 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+{% endblock %}
+
+{% block content %}
+
 <form action="{{ url_for('url_shortener.add_link') }}" method="post">
-    <input type="text" name="original_url">
+    <label for="link">Enter your link below</label>
+    <input type="text" name="original_url" autocomplete="false" autofocus='true'>
     <input type="submit" value="Request">
 </form>
+
+{% endblock content %}

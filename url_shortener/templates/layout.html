@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- CSS comes Here -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+    {% block css %}{% endblock %}
+
+    {% if title %}
+    <title>url_shortener - {{ title }} </title>
+    {% else %}
+    <title>url_shortener</title>
+    {% endif %}
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('url_shortener.index') }}">Home</a></li>
+                <li><a href="{{ url_for('url_shortener.stats') }}">Statistics</a></li>
+            </ul>
+        </nav>
+
+        <h1>This is a basic url shortener Flask App</h1>
+    </header>
+
+    <main>
+        <div class="content">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+
+
+    <!-- JavaScript Comes Here -->
+    {% block js %}{% endblock %}
+
+</body>
+
+</html>

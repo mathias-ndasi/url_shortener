@@ -34,8 +34,7 @@ def add_link():
 
 @url_shortener.route('/stats')
 def stats():
-    links = Link.query.all()
-
+    links = Link.query.all()    
     return render_template('stats.html', links=links)
 
 

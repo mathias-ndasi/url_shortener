@@ -7,13 +7,12 @@ config.read(os.path.join(os.getcwd(), 'config.ini'))
 
 
 class Config:
-    SECRET_KEY = config.get('universe', 'SECRET_KEY')
-    SQLALCHEMY_DATABASE_URI = config.get('universe', 'SQLALCHEMY_DATABASE_URI')
-    SQLALCHEMY_TRACK_MODIFICATIONS = config.get(
-        'universe', 'SQLALCHEMY_TRACK_MODIFICATIONS')
-    MAIL_SERVER = config.get('universe', 'MAIL_SERVER')
-    MAIL_PORT = config.get('universe', 'MAIL_PORT')
-    MAIL_USE_TLS = config.get('universe', 'MAIL_USE_TLS')
-    MAIL_USERNAME = config.get('universe', 'MAIL_USERNAME')
-    MAIL_PASSWORD = config.get('universe', 'MAIL_PASSWORD')
+    SECRET_KEY = config.get('settings', 'SECRET_KEY')
+    SQLALCHEMY_DATABASE_URI = config.get('settings', 'SQLALCHEMY_DATABASE_URI')
+    SQLALCHEMY_TRACK_MODIFICATIONS = config.get('settings', 'SQLALCHEMY_TRACK_MODIFICATIONS')
+    MAIL_SERVER = config.get('settings', 'MAIL_SERVER')
+    MAIL_PORT = config.get('settings', 'MAIL_PORT')
+    MAIL_USE_TLS = config.get('settings', 'MAIL_USE_TLS')
+    MAIL_USERNAME = config.get('settings', 'MAIL_USERNAME')
+    MAIL_PASSWORD = config.get('settings', 'MAIL_PASSWORD')
 

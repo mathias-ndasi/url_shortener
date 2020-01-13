@@ -1,28 +1,23 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from url_shortener import config
+from url_shortener.config import Config
+from flask_cors import CORS
 
-app = Flask(__name__)
 
-app.config['SECRET_KEY'] = 'eec08f2e90a81fe6227f2921bd67865e'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://rash:<ronalto>;@localhost/url_shortener'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy()
 
-db = SQLAlchemy(app)
 
-from .routes import url_shortener
-
-app.register_blueprint(url_shortener)
-
-def create_app(config_file='config.py'):
-    pass
-#     app = Flask(__name__)
-#     app.config.from_pyfile(config_file)
+def create_app(config_class=Config):
+    app = Flask(__name__)
+    app.config.from_object(Config)
     
-#     db.init_app(app)
+    db.init_app(app)
+    CORS(app)
     
-#     from .routes import url_shortener
+    from .routes import url_shortener
+    from .api import api
     
-#     app.register_blueprint(url_shortener)
+    app.register_blueprint(url_shortener)
+    app.register_blueprint(api)
     
-#     return app
+    return app

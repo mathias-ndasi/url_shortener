@@ -1,0 +1,40 @@
+.links{
+    padding: 5px 30px;
+    /* overflow-x: scroll; */
+}
+
+.links div{
+    display: flex;
+    overflow-x: scroll;
+    margin-bottom: 20px;
+}
+
+.links .title{
+    color: rgba(134, 40, 16, 0.767);
+    margin-right: 20px;
+    width: 100px;
+}
+
+.links table{
+    width: 100%;
+}
+
+.links input{
+    border: none;
+    outline: none;
+    width: 100%;
+}
+
+.links #short_link{
+    width: 30%;
+}
+
+.links button{
+    margin-left: 20px;
+    background: #ccc;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    text-align: center;
+    color: rgba(0,0,0,0.9);
+}

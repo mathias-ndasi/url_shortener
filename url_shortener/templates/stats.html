@@ -1,5 +1,37 @@
-{% for link in links %}
-Original_url: {{ link.original_url }} <br>
-Short_url: {{ link.short_url }} <br>
-Visits: {{ link.visits }} <br><br><br>
-{% endfor %}
+
+{% extends 'layout.html' %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/stats.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<h2>Statistics</h2>
+
+<table cellspacing='20' cellpadding='20'>
+    <thead>
+        <tr>
+            <th>Original url</th>
+            <th>Short url</th>
+            <th>Visits</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for link in links %}
+        <tr>
+            <td>
+                <input type="text" name="" id="" value="{{ link.original_url }}" readonly>
+            </td>
+            <td>
+                <input type="text" name="" id="" value="{{ link.short_url }}" readonly>
+            </td>
+            <td>{{ link.visits }}</td>
+        </tr>
+        {% else %}
+        <tr><td>No statistics available</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

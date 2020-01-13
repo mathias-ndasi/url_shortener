@@ -1,2 +1,38 @@
-Old Link: {{ original_url }} <br>
-New Link: {{ url_for('url_shortener.redirect_to_url', short_url=new_link, _external=True) }}
+
+{% extends 'layout.html' %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/link_added.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class='links'>
+    <table cellspacing='20' cellpadding='5'>
+        <tbody>
+            <tr>
+                <td class="title">Original Link</td>
+                <td><input type="text" name="" id="" value="{{ original_url }}" readonly></td>
+            </tr>
+            <tr>
+                <td class="title">Short Link</td>
+                <td><p><input type="text" value="{{ url_for('url_shortener.redirect_to_url', short_url=new_link, _external=True) }}" id="short_link" readonly /> <span><button id="copy" onclick='copy()'>copy</button></span> </p> </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
+
+{% block js %}
+<script>
+    function copy() {
+        var short_link = document.getElementById("short_link");
+        short_link.select();
+        short_link.setSelectionRange(0, 99999);
+        document.execCommand("copy");
+        let btn = document.getElementById('copy');
+        btn.innerText = 'link copied'
+    }
+</script>
+{% endblock %}
