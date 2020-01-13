@@ -15,7 +15,7 @@ class Link(db.Model):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.short_url = request.host_url + self.generate_short_link()
+        self.short_url = self.generate_short_link()
 
     def generate_short_link(self):
         characters = string.digits + string.ascii_letters

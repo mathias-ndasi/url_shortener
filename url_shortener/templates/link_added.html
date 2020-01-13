@@ -16,7 +16,7 @@
             </tr>
             <tr>
                 <td class="title">Short Link</td>
-                <td><p><input type="text" value="{{ url_for('url_shortener.redirect_to_url', short_url=new_link, _external=True) }}" id="short_link" readonly /> <span><button id="copy" onclick='copy()'>copy</button></span> </p> </td>
+                <td><p><input type="text" value="{{ new_link }}" id="short_link" readonly /> <span><button id="copy" onclick='copy()'>copy</button></span> </p> </td>
             </tr>
         </tbody>
     </table>

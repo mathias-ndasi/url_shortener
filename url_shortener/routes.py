@@ -1,6 +1,7 @@
 from flask import Blueprint, request, redirect, render_template
 from url_shortener import db
 from url_shortener.models import Link
+import re
 
 url_shortener = Blueprint('url_shortener', __name__)
 
@@ -29,7 +30,7 @@ def add_link():
         db.session.add(link)
         db.session.commit()
 
-        return render_template('link_added.html', new_link=link.short_url, original_url=link.original_url)
+        return render_template('link_added.html', new_link= request.host_url + link.short_url, original_url=link.original_url)
 
 
 @url_shortener.route('/stats')
