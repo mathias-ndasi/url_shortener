@@ -1,2 +1,2 @@
 # url_shortener
-This is a url flask shortening app
+This is a flask url shortening app
